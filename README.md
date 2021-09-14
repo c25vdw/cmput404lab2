@@ -22,4 +22,11 @@ the address of incoming connection, and the socket
 
 `None`
 
-6. 
+6. https://github.com/c25vdw/cmput404lab2
+
+
+# Usage
+
+- `python3 proxy_client.py` to start a multi-thread/process client
+- `python3 proxy_server.py` to start a forking server
+
