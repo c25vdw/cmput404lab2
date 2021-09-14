@@ -30,3 +30,4 @@ the address of incoming connection, and the socket
 - `python3 proxy_client.py` to start a multi-thread/process client
 - `python3 proxy_server.py` to start a forking server
 
+proxy_client and proxy_server provides option to set the proxy host and port, using `--host <hostname> --port <port>`. Short hand is supported, too. For example, `python3 proxy_client.py -H 127.0.0.1 -p 8001` tells the client to assume proxy server running at 127.0.0.1:8001

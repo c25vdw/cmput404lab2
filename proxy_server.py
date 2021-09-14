@@ -17,21 +17,27 @@
 
 import socket
 import time
+import argparse
 from multiprocessing import Process
 # define address & buffer size
 TARGET_HOST = "www.google.com"
 TARGET_PORT = 80
 
-HOST = "127.0.0.1"
-PORT = 8001
+parser = argparse.ArgumentParser(description="proxy server")
+parser.add_argument('--host', '-H', default='127.0.0.1', type=str)
+parser.add_argument('--port', '-p', default=8001, type=int)
 BUFFER_SIZE = 1024
 
 
 def main():
+    args = parser.parse_args()
+    HOST = args.host
+    PORT = args.port
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         # bind socket to address
         s.bind((HOST, PORT))
+        print(f"proxy server running at {HOST}:{PORT}")
         # set to listening mode
         s.listen(2)
 
